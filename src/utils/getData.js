@@ -1,4 +1,4 @@
-import excludedUsers from "../../excludedUsers";
+import excludedUsers from "../../excludedUsers.json";
 import fetchWithAxios from "./fetchWithAxios";
 
 const fetchData = async () => {
