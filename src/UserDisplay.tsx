@@ -1,5 +1,11 @@
-/* eslint-disable react/prop-types */
-const UserDisplay = ({ user, isVisible }) => {
+import { User } from "./types/User";
+
+type UserDisplayProps = {
+  user: User;
+  isVisible: boolean;
+};
+
+const UserDisplay: React.FC<UserDisplayProps> = ({ user, isVisible }) => {
   return (
     <div
       className={`absolute top-0 left-0 w-full h-full flex flex-col justify-center items-center transition-opacity duration-1000 ease-in-out ${

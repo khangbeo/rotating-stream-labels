@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
 
-const useCarousel = (users, intervalTime = 4000) => {
+const useCarousel = (
+  users: Array<object>,
+  intervalTime: number = 4000
+): number => {
   const [index, setIndex] = useState(0);
 
   useEffect(() => {

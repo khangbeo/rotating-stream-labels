@@ -1,5 +1,6 @@
 import excludedUsers from "../../excludedUsers.json";
 import fetchWithAxios from "./fetchWithAxios";
+import { User } from "../types/User";
 
 const fetchData = async () => {
   const baseUrl = import.meta.env.VITE_BASE_URL;
@@ -27,11 +28,11 @@ const fetchData = async () => {
     ]);
 
     const topChatter = chatStats.chatters.filter(
-      (user) => !excludedUsers.includes(user.name)
+      (user: any) => !excludedUsers.includes(user.name)
     )[0];
 
-    const topGifter = sessionData.data["subscriber-alltime-gifter"];
-    const topTipper = sessionData.data["tip-alltime-top-donator"];
+    const topGifter = sessionData["subscriber-alltime-gifter"];
+    const topTipper = sessionData["tip-alltime-top-donator"];
 
     const usernames = [
       { name: topChatter.name, label: "Most Chats" },
@@ -39,13 +40,13 @@ const fetchData = async () => {
       { name: topTipper.name, label: "Top Tipper" },
     ];
 
-    const userData = await Promise.all(
+    const userData: User[] = await Promise.all(
       usernames.map(async ({ name, label }) => {
         const res = await fetchWithAxios(
           `${twitchUrl}?login=${name}`,
           twitchOptions
         );
-        const userProfile = res.data[0];
+        const userProfile = res[0];
         return {
           name: userProfile.display_name,
           avatar: userProfile.profile_image_url,
@@ -53,6 +54,7 @@ const fetchData = async () => {
         };
       })
     );
+
     return userData;
   } catch (error) {
     console.error("Error fetching data:", error);
