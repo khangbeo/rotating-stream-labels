@@ -7,9 +7,7 @@ Currently, two official plugins are available:
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-Add a file at the root directory called excludedUsers.json with this schema, username needs to match with what's on Twitch
-
-["first_user", "second_user"]
+Add users you want to filter from the data to excludedUsers.json
 
 Create a .env file with all required variables
 VITE_TWITCH_USER=your twitch username

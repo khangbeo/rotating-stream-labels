@@ -46,10 +46,10 @@ const fetchData = async () => {
           `${twitchUrl}?login=${name}`,
           twitchOptions
         );
-        const userProfile = res.data[0];
+        const { display_name, profile_image_url } = res.data[0];
         return {
-          name: userProfile.display_name,
-          avatar: userProfile.profile_image_url,
+          name: display_name,
+          avatar: profile_image_url,
           label,
         };
       })
