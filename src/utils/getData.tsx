@@ -31,8 +31,8 @@ const fetchData = async () => {
       (user: any) => !excludedUsers.includes(user.name)
     )[0];
 
-    const topGifter = sessionData["subscriber-alltime-gifter"];
-    const topTipper = sessionData["tip-alltime-top-donator"];
+    const topGifter = sessionData.data["subscriber-alltime-gifter"];
+    const topTipper = sessionData.data["tip-alltime-top-donator"];
 
     const usernames = [
       { name: topChatter.name, label: "Most Chats" },
@@ -46,7 +46,7 @@ const fetchData = async () => {
           `${twitchUrl}?login=${name}`,
           twitchOptions
         );
-        const userProfile = res[0];
+        const userProfile = res.data[0];
         return {
           name: userProfile.display_name,
           avatar: userProfile.profile_image_url,
