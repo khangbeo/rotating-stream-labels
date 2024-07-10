@@ -35,9 +35,9 @@ const fetchData = async () => {
     const topTipper = sessionData.data["tip-alltime-top-donator"];
 
     const usernames = [
-      { name: topChatter.name, label: "Most Chats" },
+      { name: topChatter.name, label: "Chat Champion" },
       { name: topGifter.name, label: "Top Gifter" },
-      { name: topTipper.name, label: "Top Tipper" },
+      { name: topTipper.name, label: "Top Contributor" },
     ];
 
     const userData: User[] = await Promise.all(
