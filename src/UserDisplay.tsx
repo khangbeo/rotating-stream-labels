@@ -13,7 +13,9 @@ const UserDisplay: React.FC<UserDisplayProps> = ({ user, isVisible }) => {
       } `}
       style={{ opacity: isVisible ? 1 : 0 }}
     >
-      <div className="mb-3 text-6xl font-bold text-greeen">{user.label}</div>
+      <div className="mb-3 text-6xl font-bold text-greeen text-center">
+        {user.label}
+      </div>
       <img
         src={user.avatar}
         alt="twitch-profile-picture"
